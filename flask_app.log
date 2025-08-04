@@ -1,0 +1,16 @@
+2025-08-04 17:12:25,399 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.77:5000
+2025-08-04 17:12:25,400 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-04 17:12:25,402 - werkzeug - INFO -  * Restarting with stat
+2025-08-04 17:12:27,121 - werkzeug - WARNING -  * Debugger is active!
+2025-08-04 17:12:27,128 - werkzeug - INFO -  * Debugger PIN: 100-237-630
+2025-08-04 17:12:45,451 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:12:45] "GET /?ide_webview_request_time=1754298765435 HTTP/1.1" 200 -
+2025-08-04 17:12:53,006 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:12:53] "GET /?ide_webview_request_time=1754298773002 HTTP/1.1" 200 -
+2025-08-04 17:12:55,700 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:12:55] "GET /?ide_webview_request_time=1754298775695 HTTP/1.1" 200 -
+2025-08-04 17:13:04,385 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:13:04] "GET /list_files HTTP/1.1" 200 -
+2025-08-04 17:13:04,398 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:13:04] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
+2025-08-04 17:25:57,595 - werkzeug - INFO -  * Detected change in 'F:\\Wendywork\\mcp-project\\flask_app.py', reloading
+2025-08-04 17:25:57,720 - werkzeug - INFO -  * Restarting with stat
+2025-08-04 17:26:00,778 - werkzeug - INFO -  * Restarting with stat

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP交互式平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #f9fafb; }
+        .chat-container { height: 500px; overflow-y: auto; }
+        .message { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">MCP交互式平台</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="/" class="hover:text-blue-200">首页</a></li>
+                    <li><a href="#files" class="hover:text-blue-200">文件管理</a></li>
+                    <li><a href="#email" class="hover:text-blue-200">邮件发送</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">智能查询</h2>
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="w-full md:w-2/3 flex flex-col gap-4">
+                    <div class="chat-container p-4 bg-gray-50 rounded-lg border border-gray-200" id="chatContainer">
+                        <div class="message mb-4 p-3 bg-blue-50 rounded-lg max-w-3xl ml-auto">
+                            <p class="text-gray-800"><strong>系统:</strong> 欢迎使用MCP交互式平台！请输入您的查询。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" id="queryInput" placeholder="请输入您的查询..." class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="sendQuery" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">发送</button>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h3 class="text-lg font-medium mb-3 text-gray-800">可用功能</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Google新闻搜索</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>文本情感分析</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-green-500 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>带附件邮件发送</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-medium mb-3 text-gray-800">使用示例</h3>
+                        <div class="text-sm text-gray-600 space-y-2">
+                            <p>• 搜索关于小米SU7的新闻</p>
+                            <p>• 分析网友对小米SU7的看法</p>
+                            <p>• 发送情感分析报告到我的邮箱</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="files" class="mb-12 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">文件管理</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-50">
+                            <th class="py-2 px-4 border-b border-r text-left text-sm font-medium text-gray-600">文件名</th>
+                            <th class="py-2 px-4 border-b border-r text-left text-sm font-medium text-gray-600">大小</th>
+                            <th class="py-2 px-4 border-b border-r text-left text-sm font-medium text-gray-600">修改时间</th>
+                            <th class="py-2 px-4 border-b text-left text-sm font-medium text-gray-600">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fileTableBody">
+                        <tr>
+                            <td colspan="4" class="py-4 px-4 text-center text-gray-500">加载中...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="fileContent" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 hidden">
+                <h3 class="text-lg font-medium mb-2 text-gray-800" id="currentFileName"></h3>
+                <pre class="whitespace-pre-wrap text-sm text-gray-700" id="fileContentPre"></pre>
+            </div>
+        </section>
+
+        <section id="email" class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">邮件发送</h2>
+            <form id="emailForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="toEmail" class="block text-sm font-medium text-gray-700 mb-1">收件人邮箱</label>
+                        <input type="email" id="toEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="emailSubject" class="block text-sm font-medium text-gray-700 mb-1">邮件主题</label>
+                        <input type="text" id="emailSubject" value="MCP系统邮件" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="emailBody" class="block text-sm font-medium text-gray-700 mb-1">邮件正文</label>
+                    <textarea id="emailBody" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">这是一封来自MCP系统的邮件。</textarea>
+                </div>
+                <div>
+                    <label for="emailFile" class="block text-sm font-medium text-gray-700 mb-1">附件文件</label>
+                    <select id="emailFile" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">请选择文件</option>
+                    </select>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">发送邮件</button>
+                </div>
+            </form>
+            <div id="emailResult" class="mt-4 p-3 rounded-lg hidden"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>MCP交互式平台 &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 加载文件列表
+            loadFileList();
+            
+            // 查询发送按钮事件
+            document.getElementById('sendQuery').addEventListener('click', sendQuery);
+            document.getElementById('queryInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendQuery();
+                }
+            });
+            
+            // 邮件表单提交事件
+            document.getElementById('emailForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                sendEmail();
+            });
+        });
+        
+        // 发送查询
+        function sendQuery() {
+            const queryInput = document.getElementById('queryInput');
+            const query = queryInput.value.trim();
+            if (!query) {
+                alert('查询不能为空');
+                return;
+            }
+            
+            // 添加用户查询到聊天框
+            addMessage('user', query);
+            queryInput.value = '';
+            
+            // 显示加载中
+            addMessage('system', '正在处理您的查询...', true);
+            
+            // 发送请求
+            fetch('/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'query=' + encodeURIComponent(query)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 移除加载中消息
+                removeLoadingMessage();
+                
+                if (data.success) {
+                    addMessage('system', data.response);
+                    // 刷新文件列表
+                    loadFileList();
+                } else {
+                    addMessage('system', '查询失败: ' + data.error);
+                }
+            })
+            .catch(error => {
+                // 移除加载中消息
+                removeLoadingMessage();
+                addMessage('system', '查询发生错误: ' + error.message);
+            });
+        }
+        
+        // 添加消息到聊天框
+        function addMessage(role, content, isLoading = false) {
+            const chatContainer = document.getElementById('chatContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message mb-4 p-3 rounded-lg max-w-3xl ' + (role === 'user' ? 'ml-auto bg-blue-50' : 'mr-auto bg-gray-100');
+            
+            if (isLoading) {
+                messageDiv.id = 'loadingMessage';
+                content = '<div class="flex items-center"><div class="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-blue-500 mr-2"></div>' + content + '</div>';
+            }
+            
+            messageDiv.innerHTML = '<p class="text-gray-800"><strong>' + (role === 'user' ? '用户' : '系统') + ':</strong> ' + content + '</p>';
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        // 移除加载中消息
+        function removeLoadingMessage() {
+            const loadingMessage = document.getElementById('loadingMessage');
+            if (loadingMessage) {
+                loadingMessage.remove();
+            }
+        }
+        
+        // 加载文件列表
+        function loadFileList() {
+            fetch('/list_files')
+            .then(response => response.json())
+            .then(data => {
+                const fileTableBody = document.getElementById('fileTableBody');
+                const emailFileSelect = document.getElementById('emailFile');
+                
+                // 清空现有内容
+                fileTableBody.innerHTML = '';
+                emailFileSelect.innerHTML = '<option value="">请选择文件</option>';
+                
+                if (data.success && data.files.length > 0) {
+                    data.files.forEach(file => {
+                        // 添加到表格
+                        const row = document.createElement('tr');
+                        row.className = 'hover:bg-gray-50';
+                        row.innerHTML = `
+                            <td class="py-2 px-4 border-b border-r">${file.name}</td>
+                            <td class="py-2 px-4 border-b border-r">${formatFileSize(file.size)}</td>
+                            <td class="py-2 px-4 border-b border-r">${file.modified}</td>
+                            <td class="py-2 px-4 border-b"><button onclick="viewFile('${file.name}')" class="text-blue-600 hover:text-blue-800">查看</button></td>
+                        `;
+                        fileTableBody.appendChild(row);
+                        
+                        // 添加到邮件文件选择
+                        const option = document.createElement('option');
+                        option.value = file.path;
+                        option.textContent = file.name;
+                        emailFileSelect.appendChild(option);
+                    });
+                } else {
+                    const row = document.createElement('tr');
+                    row.innerHTML = '<td colspan="4" class="py-4 px-4 text-center text-gray-500">没有找到文件</td>';
+                    fileTableBody.appendChild(row);
+                }
+            })
+            .catch(error => {
+                console.error('加载文件列表失败:', error);
+                const fileTableBody = document.getElementById('fileTableBody');
+                fileTableBody.innerHTML = '<tr><td colspan="4" class="py-4 px-4 text-center text-red-500">加载文件列表失败: ' + error.message + '</td></tr>';
+            });
+        }
+        
+        // 查看文件内容
+        function viewFile(filename) {
+            fetch(`/view_file/${encodeURIComponent(filename)}`)
+            .then(response => response.json())
+            .then(data => {
+                const fileContentDiv = document.getElementById('fileContent');
+                const currentFileName = document.getElementById('currentFileName');
+                const fileContentPre = document.getElementById('fileContentPre');
+                
+                if (data.success) {
+                    currentFileName.textContent = filename;
+                    fileContentPre.textContent = data.content;
+                    fileContentDiv.classList.remove('hidden');
+                } else {
+                    alert('查看文件失败: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('查看文件失败:', error);
+                alert('查看文件失败: ' + error.message);
+            });
+        }
+        
+        // 发送邮件
+        function sendEmail() {
+            const toEmail = document.getElementById('toEmail').value;
+            const subject = document.getElementById('emailSubject').value;
+            const body = document.getElementById('emailBody').value;
+            const file_path = document.getElementById('emailFile').value;
+            
+            if (!toEmail || !file_path) {
+                alert('收件人和文件不能为空');
+                return;
+            }
+            
+            // 显示加载状态
+            const emailResult = document.getElementById('emailResult');
+            emailResult.className = 'mt-4 p-3 rounded-lg bg-yellow-50 text-yellow-700';
+            emailResult.textContent = '正在发送邮件...';
+            emailResult.classList.remove('hidden');
+            
+            // 发送请求
+            fetch('/send_email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'to_email=' + encodeURIComponent(toEmail) +
+                       '&subject=' + encodeURIComponent(subject) +
+                       '&body=' + encodeURIComponent(body) +
+                       '&file_path=' + encodeURIComponent(file_path)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    emailResult.className = 'mt-4 p-3 rounded-lg bg-green-50 text-green-700';
+                    emailResult.textContent = '邮件发送成功: ' + data.message;
+                } else {
+                    emailResult.className = 'mt-4 p-3 rounded-lg bg-red-50 text-red-700';
+                    emailResult.textContent = '邮件发送失败: ' + data.error;
+                }
+                emailResult.classList.remove('hidden');
+            })
+            .catch(error => {
+                emailResult.className = 'mt-4 p-3 rounded-lg bg-red-50 text-red-700';
+                emailResult.textContent = '发送邮件发生错误: ' + error.message;
+                emailResult.classList.remove('hidden');
+            });
+        }
+        
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+</html>

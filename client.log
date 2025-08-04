@@ -1,0 +1,342 @@
+2025-08-04 15:42:39,982 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-08-04 15:42:39,983 - client - INFO - Starting client...
+2025-08-04 15:42:40,379 - client - INFO - connect to server ¼´½«Ö´ÐÐ
+2025-08-04 15:42:40,532 - client - ERROR - ·¢Éú´íÎó£º'OpenAI' object has no attribute 'total_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 253, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 73, in connect_to_server
+    await self.session.initialize()
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\session.py", line 151, in initialize
+    result = await self.send_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\shared\session.py", line 268, in send_request
+    timeout = self._session_read_timeout_seconds.total_seconds()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OpenAI' object has no attribute 'total_seconds'
+2025-08-04 15:42:40,538 - client - ERROR - Unexpected error in main: 'OpenAI' object has no attribute 'total_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 253, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 73, in connect_to_server
+    await self.session.initialize()
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\session.py", line 151, in initialize
+    result = await self.send_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\shared\session.py", line 268, in send_request
+    timeout = self._session_read_timeout_seconds.total_seconds()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OpenAI' object has no attribute 'total_seconds'
+2025-08-04 15:42:41,808 - client - CRITICAL - ÖÂÃü´íÎó£ºunhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "F:\Wendywork\mcp-project\client.py", line 269, in <module>
+  |     asyncio.run(main())
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "F:\Wendywork\mcp-project\client.py", line 264, in main
+  |     await client.cleanup()
+  |   File "F:\Wendywork\mcp-project\client.py", line 233, in cleanup
+  |     await self.exit_stack.aclose()
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 696, in aclose
+  |     await self.__aexit__(None, None, None)
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 754, in __aexit__
+  |     raise exc_details[1]
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 737, in __aexit__
+  |     cb_suppress = await cb(*exc_details)
+  |                   ^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 217, in __aexit__
+  |     await anext(self.gen)
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\stdio\__init__.py", line 181, in stdio_client
+  |     anyio.create_task_group() as tg,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\stdio\__init__.py", line 160, in stdout_reader
+    |     await read_stream_writer.send(session_message)
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\memory.py", line 242, in send
+    |     self.send_nowait(item)
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\memory.py", line 213, in send_nowait
+    |     raise BrokenResourceError
+    | anyio.BrokenResourceError
+    +------------------------------------
+2025-08-04 15:44:03,948 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-08-04 15:44:03,949 - client - INFO - Starting client...
+2025-08-04 15:44:04,326 - client - INFO - connect to server ¼´½«Ö´ÐÐ
+2025-08-04 15:44:04,474 - client - ERROR - ·¢Éú´íÎó£º'OpenAI' object has no attribute 'total_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 255, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 75, in connect_to_server
+    await self.session.initialize()
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\session.py", line 151, in initialize
+    result = await self.send_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\shared\session.py", line 268, in send_request
+    timeout = self._session_read_timeout_seconds.total_seconds()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OpenAI' object has no attribute 'total_seconds'
+2025-08-04 15:44:04,478 - client - ERROR - Unexpected error in main: 'OpenAI' object has no attribute 'total_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 255, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 75, in connect_to_server
+    await self.session.initialize()
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\session.py", line 151, in initialize
+    result = await self.send_request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\shared\session.py", line 268, in send_request
+    timeout = self._session_read_timeout_seconds.total_seconds()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'OpenAI' object has no attribute 'total_seconds'
+2025-08-04 15:44:05,765 - client - CRITICAL - ÖÂÃü´íÎó£ºunhandled errors in a TaskGroup (1 sub-exception)
+  + Exception Group Traceback (most recent call last):
+  |   File "F:\Wendywork\mcp-project\client.py", line 271, in <module>
+  |     asyncio.run(main())
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+  |     return runner.run(main)
+  |            ^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+  |     return self._loop.run_until_complete(task)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 686, in run_until_complete
+  |     return future.result()
+  |            ^^^^^^^^^^^^^^^
+  |   File "F:\Wendywork\mcp-project\client.py", line 266, in main
+  |     await client.cleanup()
+  |   File "F:\Wendywork\mcp-project\client.py", line 235, in cleanup
+  |     await self.exit_stack.aclose()
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 696, in aclose
+  |     await self.__aexit__(None, None, None)
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 754, in __aexit__
+  |     raise exc_details[1]
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 737, in __aexit__
+  |     cb_suppress = await cb(*exc_details)
+  |                   ^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 217, in __aexit__
+  |     await anext(self.gen)
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\stdio\__init__.py", line 181, in stdio_client
+  |     anyio.create_task_group() as tg,
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\_backends\_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\mcp\client\stdio\__init__.py", line 160, in stdout_reader
+    |     await read_stream_writer.send(session_message)
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\memory.py", line 242, in send
+    |     self.send_nowait(item)
+    |   File "C:\Users\Wendy Xue\AppData\Local\Programs\Python\Python312\Lib\site-packages\anyio\streams\memory.py", line 213, in send_nowait
+    |     raise BrokenResourceError
+    | anyio.BrokenResourceError
+    +------------------------------------
+2025-08-04 15:47:48,955 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-08-04 15:47:48,956 - client - INFO - Starting client...
+2025-08-04 15:47:49,342 - client - INFO - connect to server ¼´½«Ö´ÐÐ
+2025-08-04 15:47:49,491 - client - ERROR - ·¢Éú´íÎó£ºClientSession.__init__() got an unexpected keyword argument 'session_read_timeout_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 260, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 71, in connect_to_server
+    ClientSession(
+TypeError: ClientSession.__init__() got an unexpected keyword argument 'session_read_timeout_seconds'
+2025-08-04 15:47:49,492 - client - ERROR - Unexpected error in main: ClientSession.__init__() got an unexpected keyword argument 'session_read_timeout_seconds'
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 260, in main
+    await client.connect_to_server(server_script_path)
+  File "F:\Wendywork\mcp-project\client.py", line 71, in connect_to_server
+    ClientSession(
+TypeError: ClientSession.__init__() got an unexpected keyword argument 'session_read_timeout_seconds'
+2025-08-04 15:48:30,198 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-08-04 15:48:30,199 - client - INFO - Starting client...
+2025-08-04 15:48:30,595 - client - INFO - connect to server ¼´½«Ö´ÐÐ
+2025-08-04 15:52:38,328 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-5c4f58ab-b432-49ca-90cb-60babf4b3504', 'json_data': {'messages': [{'role': 'system', 'content': 'ÄãÊÇÒ»¸öÖÇÄÜÖúÊÖ£¬ÓÃ»§»á¸ø³öÒ»¾äÇëÇó¡£ÒÔÏÂÊÇ¿ÉÓÃµÄ¹¤¾ßÁÐ±í£¨ÇëÑÏ¸ñÊ¹ÓÃ¹¤¾ßÃû³Æ£©£º\nsearch_google: Ê¹ÓÃGoogleËÑË÷\nanalyze_sentiment: ·ÖÎöÎÄ±¾Çé¸Ð\nsend_email_with_attachment: ·¢ËÍµç×ÓÓÊ¼þ\nÇë¸ù¾ÝÓÃ»§µÄ²éÑ¯¼Æ»®Ê¹ÓÃÕâÐ©¹¤¾ß¡£Èç¹û¶à¸ö¹¤¾ßÐèÒª´®Áª£¬ºóÐø²½ÖèÖÐ¿ÉÒÔÊ¹ÓÃ{{ÉÏÒ»²½¹¤¾ßÃû}}Õ¼Î»¡£\n·µ»Ø¸ñÊ½£ºJSONÊý×é£¬Ã¿¸ö¶ÔÏó°üº¬nameºÍarguments×Ö¶Î'}, {'role': 'user', 'content': 'ÍøÓÑ¶ÔÓÚÐ¡Ã×su7µÄ¿´·¨[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:52:37.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:52:37.md]'}], 'model': 'qwen-plus', 'tool_choice': 'none', 'tools': [{'type': 'function', 'function': {'name': 'search_google', 'description': 'Ê¹ÓÃGoogleËÑË÷', 'input_schema': {'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': ['query'], 'title': 'search_googleArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'analyze_sentiment', 'description': '·ÖÎöÎÄ±¾Çé¸Ð', 'input_schema': {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'analyze_sentimentArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'send_email_with_attachment', 'description': '·¢ËÍµç×ÓÓÊ¼þ', 'input_schema': {'properties': {'to': {'title': 'To', 'type': 'string'}, 'subject': {'title': 'Subject', 'type': 'string'}, 'body': {'title': 'Body', 'type': 'string'}, 'filename': {'title': 'Filename', 'type': 'string'}}, 'required': ['to', 'subject', 'body', 'filename'], 'title': 'send_email_with_attachmentArguments', 'type': 'object'}}}]}}
+2025-08-04 15:52:38,440 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:52:38,440 - httpcore.connection - DEBUG - connect_tcp.started host='dashscope.aliyuncs.com' port=443 local_address=None timeout=30 socket_options=None
+2025-08-04 15:52:38,509 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A03EBFE90>
+2025-08-04 15:52:38,509 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000024A03ED4DD0> server_hostname='dashscope.aliyuncs.com' timeout=30
+2025-08-04 15:52:38,576 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A04289280>
+2025-08-04 15:52:38,577 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:52:38,578 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:52:38,578 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:52:38,578 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:52:38,579 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:52:40,114 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'29fe3910-47cc-941e-8d72-955deb4c849a'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'1503'), (b'req-arrive-time', b'1754293957973'), (b'resp-start-time', b'1754293959477'), (b'x-envoy-upstream-service-time', b'1501'), (b'set-cookie', b'acw_tc=29fe3910-47cc-941e-8d72-955deb4c849a6e6de7423892cfe7e038958575c2452a;path=/;HttpOnly;Max-Age=1800'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:52:39 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:52:40,115 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:52:40,115 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:52:40,116 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:52:40,116 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:52:40,116 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:52:40,117 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '29fe3910-47cc-941e-8d72-955deb4c849a', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '1503', 'req-arrive-time': '1754293957973', 'resp-start-time': '1754293959477', 'x-envoy-upstream-service-time': '1501', 'set-cookie': 'acw_tc=29fe3910-47cc-941e-8d72-955deb4c849a6e6de7423892cfe7e038958575c2452a;path=/;HttpOnly;Max-Age=1800', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:52:39 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:52:40,196 - openai._base_client - DEBUG - request_id: 29fe3910-47cc-941e-8d72-955deb4c849a
+2025-08-04 15:52:40,198 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-3d6b21ed-418d-4cb7-bde1-d2456bc2e992', 'json_data': {'messages': [{'role': 'user', 'content': 'ÍøÓÑ¶ÔÓÚÐ¡Ã×su7µÄ¿´·¨[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:52:37.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:52:37.md]'}], 'model': 'qwen-plus'}}
+2025-08-04 15:52:40,199 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:52:40,200 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:52:40,201 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:52:40,201 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:52:40,201 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:52:40,201 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:53:06,806 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'03c2cc68-6851-9f96-bc09-d9239706020a'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'26571'), (b'req-arrive-time', b'1754293959596'), (b'resp-start-time', b'1754293986167'), (b'x-envoy-upstream-service-time', b'26570'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:53:06 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:53:06,807 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:53:06,807 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:53:06,808 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:53:06,808 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:53:06,808 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:53:06,809 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '03c2cc68-6851-9f96-bc09-d9239706020a', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '26571', 'req-arrive-time': '1754293959596', 'resp-start-time': '1754293986167', 'x-envoy-upstream-service-time': '26570', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:53:06 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:53:06,810 - openai._base_client - DEBUG - request_id: 03c2cc68-6851-9f96-bc09-d9239706020a
+2025-08-04 15:55:18,149 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-09ea3d3a-fb96-4071-819d-784c3ba41b4c', 'json_data': {'messages': [{'role': 'system', 'content': 'ÄãÊÇÒ»¸öÖÇÄÜÖúÊÖ£¬ÓÃ»§»á¸ø³öÒ»¾äÇëÇó¡£ÒÔÏÂÊÇ¿ÉÓÃµÄ¹¤¾ßÁÐ±í£¨ÇëÑÏ¸ñÊ¹ÓÃ¹¤¾ßÃû³Æ£©£º\nsearch_google: Ê¹ÓÃGoogleËÑË÷\nanalyze_sentiment: ·ÖÎöÎÄ±¾Çé¸Ð\nsend_email_with_attachment: ·¢ËÍµç×ÓÓÊ¼þ\nÇë¸ù¾ÝÓÃ»§µÄ²éÑ¯¼Æ»®Ê¹ÓÃÕâÐ©¹¤¾ß¡£Èç¹û¶à¸ö¹¤¾ßÐèÒª´®Áª£¬ºóÐø²½ÖèÖÐ¿ÉÒÔÊ¹ÓÃ{{ÉÏÒ»²½¹¤¾ßÃû}}Õ¼Î»¡£\n·µ»Ø¸ñÊ½£ºJSONÊý×é£¬Ã¿¸ö¶ÔÏó°üº¬nameºÍarguments×Ö¶Î'}, {'role': 'user', 'content': 'ÐèÒªÒ»·Ý¿ÉÊÓ»¯Í¼±í£¬²¢°ÑÕâ¸öÎÄ¼þ·¢µ½ÎÒµÄÓÊÏä[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:55:18.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:55:18.md]'}], 'model': 'qwen-plus', 'tool_choice': 'none', 'tools': [{'type': 'function', 'function': {'name': 'search_google', 'description': 'Ê¹ÓÃGoogleËÑË÷', 'input_schema': {'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': ['query'], 'title': 'search_googleArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'analyze_sentiment', 'description': '·ÖÎöÎÄ±¾Çé¸Ð', 'input_schema': {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'analyze_sentimentArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'send_email_with_attachment', 'description': '·¢ËÍµç×ÓÓÊ¼þ', 'input_schema': {'properties': {'to': {'title': 'To', 'type': 'string'}, 'subject': {'title': 'Subject', 'type': 'string'}, 'body': {'title': 'Body', 'type': 'string'}, 'filename': {'title': 'Filename', 'type': 'string'}}, 'required': ['to', 'subject', 'body', 'filename'], 'title': 'send_email_with_attachmentArguments', 'type': 'object'}}}]}}
+2025-08-04 15:55:18,151 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:55:18,151 - httpcore.connection - DEBUG - close.started
+2025-08-04 15:55:18,151 - httpcore.connection - DEBUG - close.complete
+2025-08-04 15:55:18,152 - httpcore.connection - DEBUG - connect_tcp.started host='dashscope.aliyuncs.com' port=443 local_address=None timeout=30 socket_options=None
+2025-08-04 15:55:18,189 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A03F2BFE0>
+2025-08-04 15:55:18,189 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000024A03ED4DD0> server_hostname='dashscope.aliyuncs.com' timeout=30
+2025-08-04 15:55:18,224 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A03F2BE30>
+2025-08-04 15:55:18,224 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:55:18,225 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:55:18,225 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:55:18,225 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:55:18,226 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:55:19,893 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'e7e69d8a-9f82-98a9-bad5-e04272a59665'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'1637'), (b'req-arrive-time', b'1754294117615'), (b'resp-start-time', b'1754294119252'), (b'x-envoy-upstream-service-time', b'1635'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:55:19 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:55:19,894 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:55:19,894 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:55:19,895 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:55:19,895 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:55:19,896 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:55:19,896 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': 'e7e69d8a-9f82-98a9-bad5-e04272a59665', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '1637', 'req-arrive-time': '1754294117615', 'resp-start-time': '1754294119252', 'x-envoy-upstream-service-time': '1635', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:55:19 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:55:19,916 - openai._base_client - DEBUG - request_id: e7e69d8a-9f82-98a9-bad5-e04272a59665
+2025-08-04 15:55:19,917 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-c5b5095e-25c0-4479-b267-4b0dd7129184', 'json_data': {'messages': [{'role': 'user', 'content': 'ÐèÒªÒ»·Ý¿ÉÊÓ»¯Í¼±í£¬²¢°ÑÕâ¸öÎÄ¼þ·¢µ½ÎÒµÄÓÊÏä[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:55:18.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 15:55:18.md]'}], 'model': 'qwen-plus'}}
+2025-08-04 15:55:19,918 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:55:19,918 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:55:19,919 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:55:19,919 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:55:19,919 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:55:19,920 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:55:28,078 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'8fd49194-145a-9bd4-90a9-0e0ab2f323e1'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'8125'), (b'req-arrive-time', b'1754294119312'), (b'resp-start-time', b'1754294127438'), (b'x-envoy-upstream-service-time', b'8125'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:55:27 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:55:28,081 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:55:28,082 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:55:28,082 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:55:28,083 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:55:28,084 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:55:28,086 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '8fd49194-145a-9bd4-90a9-0e0ab2f323e1', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '8125', 'req-arrive-time': '1754294119312', 'resp-start-time': '1754294127438', 'x-envoy-upstream-service-time': '8125', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:55:27 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:55:28,089 - openai._base_client - DEBUG - request_id: 8fd49194-145a-9bd4-90a9-0e0ab2f323e1
+2025-08-04 15:58:29,246 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-a099b38f-a161-4090-9d3e-de4a8ff4a0a3', 'json_data': {'messages': [{'role': 'system', 'content': 'ÄãÊÇÒ»¸öÖÇÄÜÖúÊÖ£¬ÓÃ»§»á¸ø³öÒ»¾äÇëÇó¡£ÒÔÏÂÊÇ¿ÉÓÃµÄ¹¤¾ßÁÐ±í£¨ÇëÑÏ¸ñÊ¹ÓÃ¹¤¾ßÃû³Æ£©£º\nsearch_google: Ê¹ÓÃGoogleËÑË÷\nanalyze_sentiment: ·ÖÎöÎÄ±¾Çé¸Ð\nsend_email_with_attachment: ·¢ËÍµç×ÓÓÊ¼þ\nÇë¸ù¾ÝÓÃ»§µÄ²éÑ¯¼Æ»®Ê¹ÓÃÕâÐ©¹¤¾ß¡£Èç¹û¶à¸ö¹¤¾ßÐèÒª´®Áª£¬ºóÐø²½ÖèÖÐ¿ÉÒÔÊ¹ÓÃ{{ÉÏÒ»²½¹¤¾ßÃû}}Õ¼Î»¡£\n·µ»Ø¸ñÊ½£ºJSONÊý×é£¬Ã¿¸ö¶ÔÏó°üº¬nameºÍarguments×Ö¶Î'}, {'role': 'user', 'content': 'ÕûÀíÍøÓÑ¶ÔÐ¡Ã×su7µÄ¿´·¨£¬Éú³ÉÇé¸Ð·ÖÎöÎÄ¼þ£¬Éú³ÉÒ»¸ö±ýÍ¼£¬°üº¬¡°ÕýÃæ¡±¡¢¡°ÖÐÐÔ¡±¡¢¡°¸ºÃæ¡±ÈýÀàÇé¸Ð¼°Æä°Ù·Ö±È£¬°ÑÕâ¸ö±ýÍ¼ÒÔpngÍ¼Æ¬ÐÎÊ½²åÈëµ½markdownÎÄ¼þÖÐ£¬È»ºó·¢ËÍµ½ÎÒµÄÓÊÏä£ºwendy_xue_cw@163.com[md_filename=sentiment_ÎÄ¼þÉú³ÉÒ»¸ö±ýÍ¼°üº¬ÕýÃæ_2025-08-04 15:58:29.md][md_path=./sentiment_reports\\sentiment_ÎÄ¼þÉú³ÉÒ»¸ö±ýÍ¼°üº¬ÕýÃæ_2025-08-04 15:58:29.md]'}], 'model': 'qwen-plus', 'tool_choice': 'none', 'tools': [{'type': 'function', 'function': {'name': 'search_google', 'description': 'Ê¹ÓÃGoogleËÑË÷', 'input_schema': {'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': ['query'], 'title': 'search_googleArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'analyze_sentiment', 'description': '·ÖÎöÎÄ±¾Çé¸Ð', 'input_schema': {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'analyze_sentimentArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'send_email_with_attachment', 'description': '·¢ËÍµç×ÓÓÊ¼þ', 'input_schema': {'properties': {'to': {'title': 'To', 'type': 'string'}, 'subject': {'title': 'Subject', 'type': 'string'}, 'body': {'title': 'Body', 'type': 'string'}, 'filename': {'title': 'Filename', 'type': 'string'}}, 'required': ['to', 'subject', 'body', 'filename'], 'title': 'send_email_with_attachmentArguments', 'type': 'object'}}}]}}
+2025-08-04 15:58:29,248 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:58:29,248 - httpcore.connection - DEBUG - close.started
+2025-08-04 15:58:29,248 - httpcore.connection - DEBUG - close.complete
+2025-08-04 15:58:29,248 - httpcore.connection - DEBUG - connect_tcp.started host='dashscope.aliyuncs.com' port=443 local_address=None timeout=30 socket_options=None
+2025-08-04 15:58:29,283 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A04390080>
+2025-08-04 15:58:29,283 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000024A03ED4DD0> server_hostname='dashscope.aliyuncs.com' timeout=30
+2025-08-04 15:58:29,321 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000024A04373DA0>
+2025-08-04 15:58:29,326 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:58:29,327 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:58:29,328 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:58:29,335 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:58:29,336 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:58:34,369 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'df011505-388f-9391-8b0c-c06ac7fd4181'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'5009'), (b'req-arrive-time', b'1754294308713'), (b'resp-start-time', b'1754294313722'), (b'x-envoy-upstream-service-time', b'5005'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:58:33 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:58:34,371 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:58:34,372 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:58:34,373 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:58:34,374 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:58:34,374 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:58:34,375 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': 'df011505-388f-9391-8b0c-c06ac7fd4181', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '5009', 'req-arrive-time': '1754294308713', 'resp-start-time': '1754294313722', 'x-envoy-upstream-service-time': '5005', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:58:33 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:58:34,377 - openai._base_client - DEBUG - request_id: df011505-388f-9391-8b0c-c06ac7fd4181
+2025-08-04 15:58:34,380 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-cbf43cdb-863f-491e-8c9f-aac13783a956', 'json_data': {'messages': [{'role': 'user', 'content': 'ÕûÀíÍøÓÑ¶ÔÐ¡Ã×su7µÄ¿´·¨£¬Éú³ÉÇé¸Ð·ÖÎöÎÄ¼þ£¬Éú³ÉÒ»¸ö±ýÍ¼£¬°üº¬¡°ÕýÃæ¡±¡¢¡°ÖÐÐÔ¡±¡¢¡°¸ºÃæ¡±ÈýÀàÇé¸Ð¼°Æä°Ù·Ö±È£¬°ÑÕâ¸ö±ýÍ¼ÒÔpngÍ¼Æ¬ÐÎÊ½²åÈëµ½markdownÎÄ¼þÖÐ£¬È»ºó·¢ËÍµ½ÎÒµÄÓÊÏä£ºwendy_xue_cw@163.com[md_filename=sentiment_ÎÄ¼þÉú³ÉÒ»¸ö±ýÍ¼°üº¬ÕýÃæ_2025-08-04 15:58:29.md][md_path=./sentiment_reports\\sentiment_ÎÄ¼þÉú³ÉÒ»¸ö±ýÍ¼°üº¬ÕýÃæ_2025-08-04 15:58:29.md]'}], 'model': 'qwen-plus'}}
+2025-08-04 15:58:34,384 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 15:58:34,386 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 15:58:34,387 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 15:58:34,387 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 15:58:34,388 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 15:58:34,389 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 15:58:50,349 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'7a4bce01-56b1-9a23-9d3b-e783a83ba502'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'15933'), (b'req-arrive-time', b'1754294313768'), (b'resp-start-time', b'1754294329702'), (b'x-envoy-upstream-service-time', b'15931'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 07:58:49 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 15:58:50,352 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 15:58:50,353 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 15:58:50,355 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 15:58:50,356 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 15:58:50,357 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 15:58:50,358 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '7a4bce01-56b1-9a23-9d3b-e783a83ba502', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '15933', 'req-arrive-time': '1754294313768', 'resp-start-time': '1754294329702', 'x-envoy-upstream-service-time': '15931', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 07:58:49 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 15:58:50,361 - openai._base_client - DEBUG - request_id: 7a4bce01-56b1-9a23-9d3b-e783a83ba502
+2025-08-04 15:59:22,094 - client - ERROR - ·¢Éú´íÎó£º
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 261, in main
+    await client.chat_loop()
+  File "F:\Wendywork\mcp-project\client.py", line 184, in chat_loop
+    user_input = input("ÇëÊäÈëÄúµÄÎÊÌâ£º")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError
+2025-08-04 15:59:22,126 - client - ERROR - Unexpected error in main: 
+Traceback (most recent call last):
+  File "F:\Wendywork\mcp-project\client.py", line 261, in main
+    await client.chat_loop()
+  File "F:\Wendywork\mcp-project\client.py", line 184, in chat_loop
+    user_input = input("ÇëÊäÈëÄúµÄÎÊÌâ£º")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError
+2025-08-04 15:59:22,350 - httpcore.connection - DEBUG - close.started
+2025-08-04 15:59:22,351 - httpcore.connection - DEBUG - close.complete
+2025-08-04 16:00:51,445 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-08-04 16:00:51,446 - client - INFO - Starting client...
+2025-08-04 16:00:51,830 - client - INFO - connect to server ¼´½«Ö´ÐÐ
+2025-08-04 16:00:53,523 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-da008b23-a618-49d3-acb9-adce60590faa', 'json_data': {'messages': [{'role': 'system', 'content': 'ÄãÊÇÒ»¸öÖÇÄÜÖúÊÖ£¬ÓÃ»§»á¸ø³öÒ»¾äÇëÇó¡£ÒÔÏÂÊÇ¿ÉÓÃµÄ¹¤¾ßÁÐ±í£¨ÇëÑÏ¸ñÊ¹ÓÃ¹¤¾ßÃû³Æ£©£º\nsearch_google: Ê¹ÓÃGoogleËÑË÷\nanalyze_sentiment: ·ÖÎöÎÄ±¾Çé¸Ð\nsend_email_with_attachment: ·¢ËÍµç×ÓÓÊ¼þ\nÇë¸ù¾ÝÓÃ»§µÄ²éÑ¯¼Æ»®Ê¹ÓÃÕâÐ©¹¤¾ß¡£Èç¹û¶à¸ö¹¤¾ßÐèÒª´®Áª£¬ºóÐø²½ÖèÖÐ¿ÉÒÔÊ¹ÓÃ{{ÉÏÒ»²½¹¤¾ßÃû}}Õ¼Î»¡£\n·µ»Ø¸ñÊ½£ºJSONÊý×é£¬Ã¿¸ö¶ÔÏó°üº¬nameºÍarguments×Ö¶Î'}, {'role': 'user', 'content': 'ÄãºÃ£¬ÕâÊÇÒ»¸ö²âÊÔÎÊÌâ[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 16:00:53.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 16:00:53.md]'}], 'model': 'qwen-plus', 'tool_choice': 'none', 'tools': [{'type': 'function', 'function': {'name': 'search_google', 'description': 'Ê¹ÓÃGoogleËÑË÷', 'input_schema': {'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': ['query'], 'title': 'search_googleArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'analyze_sentiment', 'description': '·ÖÎöÎÄ±¾Çé¸Ð', 'input_schema': {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'analyze_sentimentArguments', 'type': 'object'}}}, {'type': 'function', 'function': {'name': 'send_email_with_attachment', 'description': '·¢ËÍµç×ÓÓÊ¼þ', 'input_schema': {'properties': {'to': {'title': 'To', 'type': 'string'}, 'subject': {'title': 'Subject', 'type': 'string'}, 'body': {'title': 'Body', 'type': 'string'}, 'filename': {'title': 'Filename', 'type': 'string'}}, 'required': ['to', 'subject', 'body', 'filename'], 'title': 'send_email_with_attachmentArguments', 'type': 'object'}}}]}}
+2025-08-04 16:00:53,599 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 16:00:53,599 - httpcore.connection - DEBUG - connect_tcp.started host='dashscope.aliyuncs.com' port=443 local_address=None timeout=30 socket_options=None
+2025-08-04 16:00:53,659 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E5F10C56D0>
+2025-08-04 16:00:53,659 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001E5F0C54D50> server_hostname='dashscope.aliyuncs.com' timeout=30
+2025-08-04 16:00:53,701 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E5F0D39280>
+2025-08-04 16:00:53,702 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 16:00:53,704 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 16:00:53,705 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 16:00:53,706 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 16:00:53,706 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 16:00:54,642 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'9603ba3d-9978-91c3-b4a0-cfc1024007c0'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'903'), (b'req-arrive-time', b'1754294453085'), (b'resp-start-time', b'1754294453989'), (b'x-envoy-upstream-service-time', b'901'), (b'set-cookie', b'acw_tc=9603ba3d-9978-91c3-b4a0-cfc1024007c0d870c9828cb0f97481f7c63d91d29657;path=/;HttpOnly;Max-Age=1800'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 08:00:53 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 16:00:54,645 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 16:00:54,646 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 16:00:54,647 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 16:00:54,647 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 16:00:54,648 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 16:00:54,648 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '9603ba3d-9978-91c3-b4a0-cfc1024007c0', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '903', 'req-arrive-time': '1754294453085', 'resp-start-time': '1754294453989', 'x-envoy-upstream-service-time': '901', 'set-cookie': 'acw_tc=9603ba3d-9978-91c3-b4a0-cfc1024007c0d870c9828cb0f97481f7c63d91d29657;path=/;HttpOnly;Max-Age=1800', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 08:00:53 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 16:00:54,650 - openai._base_client - DEBUG - request_id: 9603ba3d-9978-91c3-b4a0-cfc1024007c0
+2025-08-04 16:00:54,656 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-737e9b91-0863-4c37-8712-6a9d209e6d7c', 'json_data': {'messages': [{'role': 'user', 'content': 'ÄãºÃ£¬ÕâÊÇÒ»¸ö²âÊÔÎÊÌâ[md_filename=sentiment_·ÖÎö¶ÔÏó_2025-08-04 16:00:53.md][md_path=./sentiment_reports\\sentiment_·ÖÎö¶ÔÏó_2025-08-04 16:00:53.md]'}], 'model': 'qwen-plus'}}
+2025-08-04 16:00:54,658 - openai._base_client - DEBUG - Sending HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+2025-08-04 16:00:54,662 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-08-04 16:00:54,663 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-08-04 16:00:54,663 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-08-04 16:00:54,664 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-08-04 16:00:54,664 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-08-04 16:00:59,345 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'vary', b'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding'), (b'x-request-id', b'8a6b3d71-0492-95db-b029-2b0f53b5d9c8'), (b'x-dashscope-call-gateway', b'true'), (b'content-type', b'application/json'), (b'req-cost-time', b'4647'), (b'req-arrive-time', b'1754294454044'), (b'resp-start-time', b'1754294458691'), (b'x-envoy-upstream-service-time', b'4646'), (b'content-encoding', b'gzip'), (b'date', b'Mon, 04 Aug 2025 08:00:58 GMT'), (b'server', b'istio-envoy'), (b'transfer-encoding', b'chunked')])
+2025-08-04 16:00:59,348 - httpx - INFO - HTTP Request: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-04 16:00:59,349 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-08-04 16:00:59,351 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-08-04 16:00:59,352 - httpcore.http11 - DEBUG - response_closed.started
+2025-08-04 16:00:59,353 - httpcore.http11 - DEBUG - response_closed.complete
+2025-08-04 16:00:59,354 - openai._base_client - DEBUG - HTTP Response: POST https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions "200 OK" Headers({'vary': 'Origin,Access-Control-Request-Method,Access-Control-Request-Headers, Accept-Encoding', 'x-request-id': '8a6b3d71-0492-95db-b029-2b0f53b5d9c8', 'x-dashscope-call-gateway': 'true', 'content-type': 'application/json', 'req-cost-time': '4647', 'req-arrive-time': '1754294454044', 'resp-start-time': '1754294458691', 'x-envoy-upstream-service-time': '4646', 'content-encoding': 'gzip', 'date': 'Mon, 04 Aug 2025 08:00:58 GMT', 'server': 'istio-envoy', 'transfer-encoding': 'chunked'})
+2025-08-04 16:00:59,356 - openai._base_client - DEBUG - request_id: 8a6b3d71-0492-95db-b029-2b0f53b5d9c8
+2025-08-04 16:00:59,535 - httpcore.connection - DEBUG - close.started
+2025-08-04 16:00:59,536 - httpcore.connection - DEBUG - close.complete
+2025-08-04 17:25:59,110 - werkzeug - WARNING -  * Debugger is active!
+2025-08-04 17:25:59,116 - werkzeug - INFO -  * Debugger PIN: 100-237-630
+2025-08-04 17:26:00,621 - werkzeug - INFO -  * Detected change in 'F:\\Wendywork\\mcp-project\\flask_app.py', reloading
+2025-08-04 17:26:02,030 - werkzeug - WARNING -  * Debugger is active!
+2025-08-04 17:26:02,036 - werkzeug - INFO -  * Debugger PIN: 100-237-630
+2025-08-04 17:31:42,632 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.77:5000
+2025-08-04 17:31:42,633 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-04 17:31:42,634 - werkzeug - INFO -  * Restarting with stat
+2025-08-04 17:31:43,857 - werkzeug - WARNING -  * Debugger is active!
+2025-08-04 17:31:43,863 - werkzeug - INFO -  * Debugger PIN: 100-237-630
+2025-08-04 17:32:12,770 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:32:12] "GET /?ide_webview_request_time=1754299903512 HTTP/1.1" 200 -
+2025-08-04 17:32:12,992 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:32:12] "GET /list_files HTTP/1.1" 200 -
+2025-08-04 17:32:13,311 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:32:13] "GET /list_files HTTP/1.1" 200 -
+2025-08-04 17:32:13,366 - werkzeug - INFO - 127.0.0.1 - - [04/Aug/2025 17:32:13] "[33mGET /@vite/client HTTP/1.1[0m" 404 -
