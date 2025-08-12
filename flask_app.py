@@ -35,13 +35,32 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # 运行异步任务的辅助函数
+# 创建一个专用的事件循环和线程来处理异步任务
+class AsyncTaskRunner:
+    def __init__(self):
+        self.loop = asyncio.new_event_loop()
+        self.thread = threading.Thread(target=self._run_loop, daemon=True)
+        self.thread.start()
+        logger.info("Async task runner initialized with dedicated thread and event loop")
+
+    def _run_loop(self):
+        asyncio.set_event_loop(self.loop)
+        self.loop.run_forever()
+
+    def run_task(self, coroutine):
+        try:
+            future = asyncio.run_coroutine_threadsafe(coroutine, self.loop)
+            # 设置超时为60秒
+            return future.result(timeout=60)
+        except Exception as e:
+            logger.error(f"Error in async task: {str(e)}")
+            raise
+
+# 初始化异步任务运行器
+task_runner = AsyncTaskRunner()
+
 def run_async_task(coroutine):
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    try:
-        return loop.run_until_complete(coroutine)
-    finally:
-        loop.close()
+    return task_runner.run_task(coroutine)
 
 # 创建MCP客户端实例
 mcp_client = None

@@ -38,7 +38,7 @@ class MCPClient:
         self.client = OpenAI(
                     base_url = self.base_url,
                     api_key = self.api_key,
-                    timeout=30)  # 设置为合适的超时值（单位：秒）
+                    timeout=60)  # 增加超时值到60秒
         self.session: Optional[ClientSession] = None
         
         
@@ -50,12 +50,16 @@ class MCPClient:
             raise ValueError("Server script must be a Python (.py) or JavaScript (.js) file.")
         
         command = "python" if is_py else "node"
+        logger.info(f"Using command: {command} to start server script: {server_script_path}")
 
-        #构造命令
+        #构造命令，传递环境变量
+        env = os.environ.copy()
+        env['PYTHONUNBUFFERED'] = '1'
         server_params = StdioServerParameters(
             command=command, args=[server_script_path],
-            env=None
+            env=env
         )
+        logger.info(f"Server parameters: {server_params}")
         #print(f"Trying to start server with command: {server_params.command}")
         #print(f"Server script absolute path: {server_script_path}")
         
@@ -74,7 +78,7 @@ class MCPClient:
         # 尝试设置会话超时（如果支持）
         if hasattr(self.session, '_session_read_timeout_seconds'):
             import datetime
-            self.session._session_read_timeout_seconds = datetime.timedelta(seconds=30)
+            self.session._session_read_timeout_seconds = datetime.timedelta(seconds=60)  # 增加超时值到60秒
 
         #初始化会话
         await self.session.initialize()
@@ -213,12 +217,16 @@ class MCPClient:
         
         #构造消息列表，将系统提示和用户query一起作为消息输入
         messages = [system_prompt, {"role": "user", "content": query}]
+        # 为工具使用计划调用添加显式超时设置
+        logger.info("开始计划工具使用，设置超时60秒")
         response = self.client.chat.completions.create(
             model=self.model,
             messages=messages,
             tools=available_tools,
-            tool_choice="none"  # 不直接调用工具，先获取计划
+            tool_choice="none",  # 不直接调用工具，先获取计划
+            timeout=60  # 显式设置超时为60秒
         )
+        logger.info("工具使用计划获取成功")
 
         #提取模型返回的json
         content = response.choices[0].message.content.strip()
@@ -231,8 +239,10 @@ class MCPClient:
         #解析调用计划
         try:
             tool_plan = json.loads(json_str)
+            logger.info(f"成功解析工具计划: {tool_plan}")
             return tool_plan if isinstance(tool_plan, list) else []
         except Exception as e:
+            logger.error(f"解析工具计划失败: {e}")
             print(f"failed to parse tool plan: {e}")
             return []
         

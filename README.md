@@ -103,3 +103,14 @@
 
 ## 许可证
 [MIT License](LICENSE) - 开源免费使用，请保留原作者信息。
+
+## 截图展示
+以下是MCP交互式平台的主要页面截图：
+
+### 首页（智能查询）
+![首页截图](images/home_page.png)
+
+### 文件管理页面
+![文件管理截图](images/file_management.png)
+
+
